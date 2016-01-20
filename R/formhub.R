@@ -164,7 +164,7 @@ replaceAllNamesWithLabels <- function(formhubDataObj, language=NULL) {
 #' privateData <- formhubDownload("Private_Data_For_Testing", uname="formhub_r", pass="t3st~p4ss")
 formhubDownload = function(formName, uname, pass=NA, ...) {
   fUrl <- function(formName, uname, form=F) {
-    str_c('http://formhub.org/', uname, '/forms/', formName,
+    str_c('http://classic.ona.io/', uname, '/forms/', formName,
           ifelse(form,'/form.json', '/data.csv'))
   }
   dataUrl = fUrl(formName, uname)
