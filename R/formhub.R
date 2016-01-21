@@ -154,6 +154,7 @@ replaceAllNamesWithLabels <- function(formhubDataObj, language=NULL) {
 #' @param formName formname on formhub.org for which we download the data
 #' @param uname formhub.org username
 #' @param pass formhub.org password, if the data and/or form is private
+#' @param uri URI to a formhub server defaults to https://api.ona.io/, always include the trailing slash
 #' @param ... other parameters to pass onto formhubRead
 #' @export
 #' @return formhubDataObj a formhubData Object, with "data" and "form" slots
@@ -162,9 +163,9 @@ replaceAllNamesWithLabels <- function(formhubDataObj, language=NULL) {
 #' good_eats # is a data frame of all the data
 #' good_eats@form # is the form for that data, encoded as a dataframe
 #' privateData <- formhubDownload("Private_Data_For_Testing", uname="formhub_r", pass="t3st~p4ss")
-formhubDownload = function(formName, uname, pass=NA, ...) {
+formhubDownload = function(formName, uname, pass=NA, uri='https://api.ona.io/', ...) {
   fUrl <- function(formName, uname, form=F) {
-    str_c('https://classic.ona.io/', uname, '/forms/', formName,
+    str_c(uri, uname, '/forms/', formName,
           ifelse(form,'/form.json', '/data.csv'))
   }
   dataUrl = fUrl(formName, uname)
