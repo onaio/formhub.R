@@ -1,0 +1,49 @@
+<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
+An example of making formhub data more readable
+========================================================
+
+formhub.R makes is easy to download and work with datasets on [formhub](http://formhub.org). After downloading, formhub.R post-processes your dataset to convert the different columns to the correct type, which it derives from the `type` you specified during the creation of your XLSform. If you haven't read the [basics document](http://SEL-Columbia.github.com/formhub.R/demo/Basics_of_formhub.R.html), I recommend that you read that first.
+
+In this example, we will go through how to make data downloaded from formhub prettier  by replacing the slugs in your datasets with the text of the orginial question and answer that enumerators saw on ODK or on webforms.
+
+So lets begin with the public `good_eats` dataset, and look at (1) the names of that csv, and (2) the values of the "ratings" of various good eats.
+```{r RD.1, warning=FALSE, message=FALSE}
+require(formhub)
+# Download the dataset named good_eats in the account of mberg
+good_eats <- formhubDownload("good_eats", "mberg")
+names(good_eats)
+summary(good_eats$risk_factor)
+```
+
+
+We see the "slugs" that Matt input on the `name` column of his formhub form. But with formhub.R's `replaceHeaderNamesWithLabels` function, we can easily replace the questions with the actual questions that he asked:
+```{r RD.2, warning=FALSE, message=FALSE}
+good_eats_readable_questions <- replaceHeaderNamesWithLabels(good_eats)
+names(good_eats_readable_questions)
+```
+
+You'll see that all the questions that actually had a label are replaced. The effect is pretty subtle; mostly things are just being capitalized. With this function, the answers to the question remain unreplaced:
+
+```{r RD.3, warning=FALSE, message=FALSE}
+summary(good_eats_readable_questions$`Risk Factor`) # Note: the column name, because it includes a space, is surrounded by backticks (` `)
+```
+
+We can also do that, easily, using the `replaceAllNamesWithLabels` function:
+```{r RD.4, warning=FALSE, message=FALSE}
+good_eats_readable <- replaceAllNamesWithLabels(good_eats)
+summary(good_eats_readable$`Risk Factor`)
+```
+
+And of course, even the graph comes out looking slightly better  with better default labels:
+```{r RD.5, warning=FALSE, message=FALSE}
+require(ggplot2)
+qplot(data=good_eats_readable, x=submit_date, fill=`Risk Factor`)
+```
+
+For multi-lingual forms, the `replaceAllNamesWithLabels` function takes a language argument:
+```{r RD.6, warning=FALSE, message=FALSE}
+pde <- formhubDownload("points_d_eau", "Roxance")
+pde_fr <- replaceAllNamesWithLabels(pde, language="French")
+qplot(data=pde_fr, x=`A-6.6 Qui gère cette source/ ce point d’eau ?`) +
+    coord_flip()
+```

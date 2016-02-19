@@ -2,21 +2,21 @@
 Quality control -- how long did survey authoring take?
 ========================================================
 
-ona.R makes is easy to download and work with datasets on [ona](http://ona.io). In this showcase, we will demonstrate how to figure out how long enumerators take to enter survey data, and correlate completion time with enumerator and date of survey. 
+formhub.R makes is easy to download and work with datasets on [formhub](http://formhub.org). If you haven't read the [basics document](http://SEL-Columbia.github.com/formhub.R/demo/Basics_of_formhub.R.html), I recommend that you read that first. In this showcase, we will demonstrate how to figure out how long enumerators take to enter survey data, and correlate completion time with enumerator and date of survey. 
 
 After reading the dataset, we want to prepare two basic fields, the first one, `completion_time` will denote how long it took someone to fill the survey out. The second will be the enumerator's initial (which in this case is completely identifying, and helps us process multiple spellings).
 
 
 ```{r read, warning=FALSE, message=FALSE}
-source("../formhub.R")
-formhubData <- formhubRead("~/Downloads/Some_Data.csv","~/Downloads/Some_Schema.json")
-some_data <- formhubData@data
-some_schema <- formhubData@schema
+library(formhub)
+formhubData <- formhubRead("~/Downloads/Some_Data.csv","~/Downloads/Some_Form.json")
+some_data <- data.frame(formhubData)
 
 # first subtract start time from end time, then, convert that to minutes
 some_data$completion_time <- some_data$end - some_data$start
 some_data$completion_time <- some_data$completion_time / eminutes(1)
 
+# install.packages(c("stringr","ggplot2")) if you don't have ggplot2 or stringr installed yet
 library(stringr)
 some_data$enumerator_initial <- factor(toupper(str_extract(some_data$research_asst_name, "[a-zA-Z]")))
 ```
