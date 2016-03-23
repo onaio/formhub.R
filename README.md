@@ -4,6 +4,8 @@ ona.R
 
 ona.R is a library for making reading data form [ona.io](https://ona.io) into R easier.
 
+This is derived from formhub.r created by Prabhas.
+
 Examples
 --------
 
