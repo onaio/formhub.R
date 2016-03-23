@@ -4,7 +4,7 @@ An introduction to formhub.R
 
 Installation
 ------------
-formhub.R makes is easy to download and work with datasets on [formhub](http://formhub.org). After downloading, formhub.R post-processes your dataset to convert the different columns to the correct type, which it derives from the `type` you specified during the creation of your XLSform. It is distributed as an R package called `formhub` which is not in CRAN yet, and can be installed in the following way:
+formhub.R makes is easy to download and work with datasets on [formhub](http://formhub.org). After downloading, formhub.R post-processes your dataset to convert the different columns to the correct type, which it derives from the `type` you specified during the creation of your XLSform. It is distributed as an R package called `formhub` which is not in CRAN yet, and can be installed in the following way: 
 
 ```
   install.packages("devtools")
