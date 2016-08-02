@@ -1,1 +1,6 @@
 .R*
+demo/*.md
+demo/cache
+.Rproj.user
+*.Rproj
+_site

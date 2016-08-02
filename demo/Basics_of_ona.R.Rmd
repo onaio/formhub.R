@@ -1,0 +1,89 @@
+---
+output: 
+  html_document: 
+    keep_md: yes
+---
+<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
+An introduction to Ona.R
+========================================================
+
+Installation
+------------
+ona.R makes is easy to download and work with datasets on [ona](https://ona.io). After downloading, ona.R post-processes your dataset to convert the different columns to the correct type, which it derives from the `type` you specified during the creation of your XLSform. It is distributed as an R package called `ona` which is not in CRAN yet, and can be installed in the following way:
+
+```
+  install.packages("devtools")
+  library(devtools)
+  install_github("ona.R", username="onaio")
+```
+
+The `install_github` line will need to be re-run every time you need to update the package, which will be frequent for now, as the package is in early testing. After installation, it can be loaded like you load any other R package:
+
+```{r read, warning=FALSE, message=FALSE}
+library(ona)
+```
+
+Download your first dataset
+---------------------------
+At this point, we should be ready to get started, and use some of the ona functions. Likely the most useful, and the most basic, one is called `onaDownload`. Try typing in `help(onaDownload)` in your R terminal to see what it does. We'll use it to download the `good_eats` form from mberg's account in ona, which is a public dataset and doesn't require a password. (To download data from an account with a password, simply pass it along as the fourth parameter).
+
+```{r  warning=FALSE, message=FALSE, fig.height=5, fig.width=7}
+good_eats <- onaDownload("good_eats", "mberg","mberg")
+```
+
+The onaData Object
+----------------------
+
+Question: what kind of beast did we just download?
+```{r  warning=FALSE, message=FALSE, fig.height=5, fig.width=7}
+str(good_eats)
+```
+
+R tells us something like `'data.frame':  1103 obs. of  24 variables:` as well as `Formal class 'onaData' [package "ona"] with 5 slots`. What this means is that onaData objects can be dealt with data.frames (which makes them very convenient!) and well as "objects" with more properties (such as `form`, which is derived from your XLSform). The `form` gives ona.R information about the exact question that was asked, and the type of the question asked (was it `text` or `select one`? or was it a `date`?), which lets the library change the types of the values to make them right, which is basically the power of this package.
+
+For simplicity, if you want just a data frame and not this complicated onaData object, you can always use the `data.frame` method.
+
+```{r  warning=FALSE, message=FALSE, fig.height=5, fig.width=7}
+good_eats_pure_data_frame <- data.frame(good_eats)
+```
+
+
+What ona.R does for you -- type conversions
+-----------------------------------------------
+
+So the part where R downloaded your data for you was pretty cool. But there is more to the `onaDownload` function than just downloading. In the background, the types of each of the columns is converted according to how the data was collected.
+```{r  warning=FALSE, message=FALSE, fig.height=5, fig.width=7}
+# lets inspect the types of the first 10 columns of our downloaded data
+str(data.frame(good_eats)[1:10])
+```
+
+
+
+
+Similiarly, things like `select one`, `imei`, and others are converted to factors, `integers` and `decimals` to numbers. Lets see how this compares with if we had simply just read the file as a csv without any type conversions:
+```{r warning=FALSE, message=FALSE, fig.height=5, fig.width=7}
+good_eats2 <- read.csv("~/Downloads/good_eats_2013_05_05.csv")
+# lets inspect the types of the first 10 columns of our downloaded data
+str(good_eats2[1:10])
+```
+Everything is a factor! Why is that bad? Well, see the plots below for yourself:
+```{r plot1, warning=FALSE, message=FALSE, fig.height=5, fig.width=7}
+# install.packages("ggplot2") if you don't have ggplot2 installed yet
+library(ggplot2)
+qplot(data=good_eats2, x=amount) # from data read in without ona.R
+qplot(data=good_eats, x=amount) # from data read in using ona.R
+```
+
+Other functions in ona.R
+----------------------------
+Okay, hopefully by now, you are sold on the usefulness of ona.R, and see some value in it. Since this is a "basics of" document, I'll end by describing a couple of other high-level functions in ona.R (lower-level functions will be documented over time).
+
+  * `onaDownload` -- download data directly from ona by passing form name, account/username/org_username, username, and password for private data
+  * `onaRead` -- create a onaData object from pre-downloaded files. The first file argument is the csv file, the second is the form.json file (which you can download from the form settings page on ona). Note: unexpected things will happen if the files aren't the right ones. See the full documentation by using `help(onaRead)`.
+  * `replaceHeaderNamesWithLabels` -- get a version of the data where the header row is re-written as the actual question asked.
+  
+And thats really the gist of it!
+
+What if I get an error while running a function?
+------------------------------------------------
+This is software that has been tested by only a couple of use cases so far, and writing good code in R is pretty tricky, so there are probably bugs! If you encounter one, please go to your project page, and under "Sharing", give the username "onasupport" "View and Download" privileges, and file an [issue on github](https://github.com/onaio/ona.R/issues)

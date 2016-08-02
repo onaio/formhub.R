@@ -1,0 +1,13 @@
+warnings_are_errors: false
+language: R
+sudo: false
+cache: packages
+r_packages:
+  - devtools
+  - sp
+  - doBy
+  - lubridate
+  - plyr
+  - RCurl
+  - RJSONIO
+  - stringr

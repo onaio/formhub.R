@@ -1,0 +1,55 @@
+ona.R News
+Renaming formhub.R to ona.r (Mar 30, 2016):
+*Renaming formhub.R to ona.r
+
+Changes in formhub.R 0.0.3.9.3 (Jan 30, 2014):
+ * minor bugfix
+
+Changes in formhub.R 0.0.3.9.2 (Jan 13, 2014):
+ * add type parameter to addPhotoURLs function
+
+Changes in formhub.R 0.0.3.9.1 (Jan 9, 2014):
+ * minor bug-fixes to avoid errors for: forms with multi-lingual options, forms with repitition in option names
+
+Changes in formhub.R 0.0.3.9 (Dec 19, 2013):
+ * addPhotoURLs function added
+
+Changes in formhub.R 0.0.3.8.3 (Dec 16, 2013):
+ * handle forms with itemsets (at a cursory level) 
+
+Changes in formhub.R 0.0.3.8.1 (Nov 26, 2013):
+ * make sure RJSONIO is higher than version 0.96; use RJSONIO explicitly in fromJSON calls
+
+Changes in formhub.R 0.0.3.8 (Nov 18, 2013):
+ * replace*NamesWithLabels no longer return formhubData objects, they return data.frames
+ * replaceAllNamesWithLabels will now work with multi-lingual forms, you have to pass in the language of your options
+
+Changes in formhub.R 0.0.3.7 (Sept 17, 2013):
+
+ * implemented a keepGroupNames=T argument to formhubRead. Make keepGroupNames FALSE, and formhub will discard group names from your dataframe, which can make it easier to manage.
+
+Changes in formhub.R 0.0.3.6.2 (Sept 16, 2013):
+
+ * replace*NamesWithLabels now *should* work on forms with weird characters that R replaced with dot
+
+Changes in formhub.R 0.0.3.6.1 (Sept 13, 2013):
+
+ * Made it so that the type column in formDFs remain as character. The factor was doing funky things on rbind.fill.
+
+Changes in formhub.R 0.0.3.6 (Sept 03, 2013):
+
+ * added a replaceAllNamesWithLables function that will replace 'slugs' within select one data, as well as the question, with the label text.
+ 
+Changes in formhub.R 0.0.3.5 (Sept 03, 2013):
+
+ * added as.SpatialPointsDataFrame function that drops all invalid gps points, and returns a SpatialPointsDataFrame
+ * added convert.dates option to formhub(Read|Download|Cast)
+
+Changes in formhub.R 0.0.3.2 (June 28, 2013):
+
+ * suppressing warnings when doing type conversion according to formhub types
+
+Changes in formhub.R 0.0.3.1 (May 24, 2013):
+
+ * `formhubData`, the class of objects that formhub* functions return, is now inherited from data.frame, and the @data property has been removed. What this means is that you can do ordinary data.frame operations (example: `head`, `names`, `nrow`) on formhubData objects, which makes usage more convenient.
+ * Demo files have been updated to reflect the change above.

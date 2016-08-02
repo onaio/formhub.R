@@ -2,15 +2,36 @@
 
 <h1>ona.R</h1>
 
-<p>ona.R is a library for making reading data form <a href="http://ona.io">ona.io</a> into R easier.</p>
+<p>ona.R is a library for making reading data form <a href="https://ona.io">Ona</a> into R easier.</p>
+<a href="https://github.com/onaio/ona.r"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
 <h2>Examples</h2>
 
 <ul>
-<li>Quick example -- <a href="http://onaio.github.com/ona.R/demo/Good_Eats_Example.html">Charting good_eats submission over time</a></li>
-<li>Making maps -- <a href="http://onaio.github.com/ona.R/demo/Water_Points_Example.html">Making maps with North Ghana data</a></li>
-<li>Quality control -- <a href="http://onaio.github.com/ona.R/demo/How_Long_Example.html">How long did it take to process a survey</a></li>
+<li>Getting started -- <a href="https://github.com/onaio/ona.r/demo/Basics_of_ona.R.html">Basics of ona.R</a></li>
+<li>Quick example -- <a href="https://github.com/onaio/ona.R/demo/Good_Eats_Example.html">Charting good_eats submission over time</a></li>
+<li>Making maps -- <a href="https://github.com/onaio/ona.R/demo/Water_Points_Example.html">Making maps with North Ghana data</a></li>
+<li>Quality control -- <a href="https://github.com/onaio/ona.R/demo/How_Long_Example.html">How long did it take to process a survey</a></li>
+<li>Quality control II -- <a href="https://github.com/onaio/ona.R/demo/RemoveOutliers.html">A basic tutorial on removing outliers from your data</a></li>
+<li>Making Readable Data -- <a href="https://github.com/onaio/ona.R/demo/ReadableData.html">Replacing "slugs" in data output with survey text</a></li>
 </ul>
+
+<p>For most of the examples, I use the <a href="http://ggplot2.org">ggplot2</a> library, which is an amazing data visualization library worth every minute of your time spent learning it.</p>
+
+<h2>Installing ona.R</h2>
+
+<p>The package for ona.R in R is simply called <code>ona</code>. For now, it cannot be installed from CRAN, but using Hadley Wickam's excellent <code>devtools</code> package, you can install it directly from github. To install (or upgrade), run the following commands from your R terminal:</p>
+
+<pre><code>install.packages('devtools') 
+library(devtools)
+install_github("ona.R", username="onaio")
+library(ona)
+</code></pre>
+
+<p>And voila! The <code>ona</code> package is installed in your R system! You can check by running:</p>
+
+<pre><code>help(ona)
+</code></pre>
 
 <h2>Features</h2>
 
@@ -26,7 +47,7 @@
 <li>TRUE / FALSE fields created out of <code>select multiple</code> options are converted into booleans</li>
 </ul></li>
 <li>removeColumns convenience function that removes columns based on matching the title with a regular expression</li>
-<li>'extra-schema' over-ride. This helps provide a type to <code>calculate</code> fields if that is desired; automagically calculating the type of a calculate field is not in the short-term feature list</li>
+<li>'extra-schema' over-ride. </li>
 </ul>
 
 <p>For planned features, go to the <a href="https://github.com/onaio/ona.R/issues">issues</a> page.</p>

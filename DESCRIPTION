@@ -1,0 +1,29 @@
+Package: ona
+Version: 0.0.1.1.1
+Date: 2016-3-30
+Title: ona.R -- pulling data from ona.io repositories easily.
+Author: Prabhas Pokharel (Modi Research Group, Columbia University)
+Clone: Jonathan Munene (Ona Kenya Ltd.)
+Maintainer: Jonathan Munene <jmunene@ona.io>
+Depends:
+    R (>= 2.15.1),
+    RJSONIO (>= 0.96),
+    stringr,
+    plyr,
+    RCurl,
+    lubridate,
+    doBy,
+    sp
+Suggests:
+    ggplot2
+Description: ona.R provides functions to pull data from ona.org
+    into R. Included are functions to download the data directly from ona,
+    read data from disk, and to convert ona forms into dataframes.
+    ona.R also parses data into the right formats according to the form
+    that was used to collect data, and offers some convenience functions
+    appropriate for data collected through surveys.
+License: Dual-licensed. GPL for commercial uses. BSD for non-commercial uses.
+URL: https://github.com/onaio/ona.r
+BugReports: https://github.com/onaio/ona.r/issues
+RoxygenNote: 5.0.1
+Suggests:testthat
