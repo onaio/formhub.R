@@ -26,4 +26,3 @@ License: Dual-licensed. GPL for commercial uses. BSD for non-commercial uses.
 URL: https://github.com/onaio/ona.r
 BugReports: https://github.com/onaio/ona.r/issues
 RoxygenNote: 5.0.1
-Suggests:testthat
