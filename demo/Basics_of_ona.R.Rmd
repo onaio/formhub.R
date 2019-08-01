@@ -3,7 +3,7 @@ output:
   html_document: 
     keep_md: yes
 ---
-<link href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></link>
+<a href="http://kevinburke.bitbucket.org/markdowncss/markdown.css" rel="stylesheet"></a>
 An introduction to Ona.R
 ========================================================
 
