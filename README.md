@@ -10,7 +10,7 @@ This project is fork of [formhub.r](https://github.com/prabhasp/formhub.R) by Pr
 Examples
 --------
 
- * Getting started -- [Basics of ona.R](https://onaio.github.com/ona.R/demo/Basics_of_formhub.R.html)
+ * Getting started -- [Basics of ona.R](https://onaio.github.com/ona.R/demo/Basics_of_ona.R.html)
  * Quick example -- [Charting good_eats submission over time](https://onaio.github.com/ona.R/demo/Good_Eats_Example.html)
  * Making maps -- [Making maps with North Ghana data](https://onaio.github.com/ona.R/demo/Water_Points_Example.html)
  * Quality control -- [How long did it take to process a survey](https://onaio.github.com/ona.R/demo/How_Long_Example.html)
