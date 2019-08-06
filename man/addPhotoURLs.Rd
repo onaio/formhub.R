@@ -26,4 +26,3 @@ good_eats <- onaDownload("good_eats", "mberg","mberg")
 good_eats_with_photos <- addPhotoURLs(good_eats, "mberg")
 grep("URL", names(good_eats_with_photos), value=TRUE) # the new columns
 }
-

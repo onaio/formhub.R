@@ -22,4 +22,3 @@ good_eats_data <- onaDownload("good_eats", "mberg","mberg")
 ge_spdf <- as.SpatialPointsDataFrame(good_eats_data)
 class(ge_spdf) # "SpatialPointsDataFrame"
 }
-

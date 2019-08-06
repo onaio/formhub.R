@@ -17,4 +17,3 @@ a smaller data frame.
 \description{
 Helper function to remove columns from data based on reg-exp matching. Also takes list of strings.
 }
-

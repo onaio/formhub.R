@@ -30,4 +30,3 @@ good_eats # is a data frame of all the data
 good_eats@form # is the form for that data, encoded as a dataframe
 privateData <- onaDownload("Private_Data_For_Testing", "ona_r", uname="ona_r", pass="ona_r")
 }
-

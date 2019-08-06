@@ -21,4 +21,3 @@ Casts a dataframe to the right types based on a form-dataframe. Used by onaCast
 
 #See examples under onaRead; this should be used through onaRead in almost all cases
 }
-

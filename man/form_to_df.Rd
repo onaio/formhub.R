@@ -18,4 +18,3 @@ formDF
 \description{
 Converts ona form.json format to dataframe format. Dataframe has name, type, label columns.
 }
-

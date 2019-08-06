@@ -28,4 +28,3 @@ the form, and the "type" column in the form provide information for type convers
 
 #See examples under onaRead; this should be used through onaRead in almost all cases
 }
-

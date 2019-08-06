@@ -23,5 +23,6 @@ Produce a data.frame out of a onaDataObj
 #' Produce a SpatialPointsDataFrame if data has a column of type `gps` or `geopoint`.
 #' Otherwise, return NA.
 
+good_eats_data <- as.data.frame(onaDownload("good_eats", "mberg","mberg"))
+class(good_eats_data) # "data.frame"
 }
-

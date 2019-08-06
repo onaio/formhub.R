@@ -26,4 +26,3 @@ full_header_good_eats <- replaceHeaderNamesWithLabels(good_eats)
 names(full_header_good_eats) # not slugged anymore
 summary(full_header_good_eats$Rating) # but data is the same
 }
-

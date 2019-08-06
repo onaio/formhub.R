@@ -29,4 +29,3 @@ onaDataObj a onaData Object, with "data" and "form" slots
 This function creates a onaData object from two files: a csv data file, and a 
 json form file. These should both be downloaded from ona.io for the same form.
 }
-

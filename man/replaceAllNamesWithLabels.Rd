@@ -30,4 +30,3 @@ good_eats_readable <- replaceAllNamesWithLabels(good_eats)
 names(good_eats_readable) # not slugged anymore
 summary(good_eats_readable$`Risk Factor`) # not slugged anymore.
 }
-
