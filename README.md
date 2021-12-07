@@ -10,12 +10,12 @@ This project is fork of [formhub.r](https://github.com/prabhasp/formhub.R) by Pr
 Examples
 --------
 
- * Getting started -- [Basics of ona.R](https://onaio.github.com/ona.R/demo/Basics_of_ona.R.html)
- * Quick example -- [Charting good_eats submission over time](https://onaio.github.com/ona.R/demo/Good_Eats_Example.html)
- * Making maps -- [Making maps with North Ghana data](https://onaio.github.com/ona.R/demo/Water_Points_Example.html)
- * Quality control -- [How long did it take to process a survey](https://onaio.github.com/ona.R/demo/How_Long_Example.html)
- * Quality control II -- [A basic tutorial on removing outliers from your data](https://onaio.github.com/ona.R/demo/RemoveOutliers.html)
- * Making Readable Data -- [Replacing "slugs" in data output with survey text](https://onaio.github.com/ona.R/demo/ReadableData.html)
+ * Getting started -- [Basics of ona.R](https://onaio.github.io/ona.R/demo/Basics_of_ona.R.html)
+ * Quick example -- [Charting good_eats submission over time](https://onaio.github.io/ona.R/demo/Good_Eats_Example.html)
+ * Making maps -- [Making maps with North Ghana data](https://onaio.github.io/ona.R/demo/Water_Points_Example.html)
+ * Quality control -- [How long did it take to process a survey](https://onaio.github.io/ona.R/demo/How_Long_Example.html)
+ * Quality control II -- [A basic tutorial on removing outliers from your data](https://onaio.github.io/ona.R/demo/RemoveOutliers.html)
+ * Making Readable Data -- [Replacing "slugs" in data output with survey text](https://onaio.github.io/ona.R/demo/ReadableData.html)
 
 For most of the examples, I use the [ggplot2](http://ggplot2.org) library, which is an amazing data visualization library worth every minute of your time spent learning it.
 
